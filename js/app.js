@@ -26,12 +26,17 @@ function verificarIntento() {
         }
         intentos++;
         limpiarCaja();
+        focusCaja();
     }
     return;
 }
 
 function limpiarCaja() {
     document.querySelector('#valorUsuario').value = '';
+}
+
+function focusCaja() {
+    document.getElementById("valorUsuario").focus();
 }
 
 function generarNumeroSecreto() {
@@ -57,6 +62,7 @@ function condicionesIniciales() {
     asignarTextoElemento('h1','Juego del número secreto!');
     asignarTextoElemento('p',`Indica un número del 1 al ${numeroMaximo}`);
     numeroSecreto = generarNumeroSecreto();
+    focusCaja();
     intentos = 1;
     console.log(numeroSecreto);
 }
@@ -64,6 +70,8 @@ function condicionesIniciales() {
 function reiniciarJuego() {
     //limpiar caja
     limpiarCaja();
+    //Focus caja
+    focusCaja();
     //Indicar mensaje de intervalo de números 
     //Generar el número aleatorio
     //Inicializar el número intentos
